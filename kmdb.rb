@@ -68,12 +68,22 @@
 # The Dark Knight Rises  Anne Hathaway         Selina Kyle
 
 # Delete existing data, so you'll start fresh each time this script is run.
-# Use `Model.destroy_all` code.
+#Model.destroy_all
+
 # TODO!
 
 # Generate models and tables, according to the domain model.
 # TODO!
+#movie table
+#rails generate model movie
 
+#rails generate model actor
+
+#rails generate model studio
+
+#rails generate model role 
+
+#rails db:migrate
 # Insert data into the database that reflects the sample data shown above.
 # Do not use hard-coded foreign key IDs.
 # TODO!
