@@ -68,13 +68,16 @@
 # The Dark Knight Rises  Anne Hathaway         Selina Kyle
 
 # Delete existing data, so you'll start fresh each time this script is run.
-#Model.destroy_all
+Movie.destroy_all
+Studio.destroy_all
+Role.destroy_all
+Actor.destroy_all
 
 # TODO!
 
 # Generate models and tables, according to the domain model.
 # TODO!
-#movie table
+
 #rails generate model movie
 
 #rails generate model actor
@@ -84,9 +87,97 @@
 #rails generate model role 
 
 #rails db:migrate
+
 # Insert data into the database that reflects the sample data shown above.
 # Do not use hard-coded foreign key IDs.
 # TODO!
+
+#Studio Information
+studio = Studio.new
+studio["name"] = "Warner Bros"
+studio.save
+
+warner = Studio.find_by({"name" => "Warner Bros"})
+
+#Movie Information
+movie1 = Movie.new 
+movie1["title"] = "Batman Begins"
+movie1["year_released"] = "2005"
+movie1["rating"] = "PG-13"
+movie1["studio_id"] = warner["id"]
+movie1.save
+
+movie2 = Movie.new 
+movie2["title"] = "The Dark Knight"
+movie2["year_released"] = "2008"
+movie2["rating"] = "PG-13"
+movie2["studio_id"] = warner["id"]
+movie2.save
+
+movie3 = Movie.new
+movie3["title"] = "The Dark Knight Rises"
+movie3["year_released"] = "2012"
+movie3["rating"] = "PG-13"
+movie3["studio_id"] = warner["id"]
+movie3.save
+
+#add a doublecheck feature 
+puts "Movies: #{Movie.all.count}"
+
+#Actor Information 
+actor1 = Actor.new
+actor1["name"] = "Christian Bale"
+actor1.save
+
+actor2 = Actor.new
+actor2["name"] = "Michael Caine"
+actor2.save
+
+actor3 = Actor.new
+actor3["name"] = "Liam Neeson"
+actor3.save
+
+actor4 = Actor.new
+actor4["name"] = "Katie Holmes"
+actor4.save
+
+actor5 = Actor.new
+actor5["name"] = "Gary Oldman"
+actor5.save
+
+actor6 = Actor.new
+actor6["name"] = "Heath Ledger"
+actor6.save
+
+actor7 = Actor.new
+actor7["name"] = "Aaron Eckhart"
+actor7.save
+
+actor8 = Actor.new
+actor8["name"] = "Maggie Gyllenhaal"
+actor8.save
+
+actor9 = Actor.new
+actor9["name"] = "Tom Hardy"
+actor9.save
+
+actor10 = Actor.new
+actor10["name"] = "Joseph Gordon-Levitt"
+actor10.save
+
+actor11 = Actor.new
+actor11["name"] = "Anne Hathaway"
+actor11.save
+
+puts "Actors: #{Actor.all.count}"
+
+#Role Information 
+role1 = Role.new
+role1["character_name"] = "Bruce Wayne"
+role1["movie_id"] = movie1["id"]
+role1["actor_id"] = actor1["id"]
+role1.save 
+puts role1.inspect
 
 # Prints a header for the movies output
 puts "Movies"
@@ -95,6 +186,7 @@ puts ""
 
 # Query the movies data and loop through the results to display the movies output.
 # TODO!
+
 
 # Prints a header for the cast output
 puts ""
