@@ -177,7 +177,6 @@ role1["character_name"] = "Bruce Wayne"
 role1["movie_id"] = movie1["id"]
 role1["actor_id"] = actor1["id"]
 role1.save 
-puts role1.inspect
 
 role2 = Role.new
 role2["character_name"] = "Alfred"
@@ -263,13 +262,39 @@ role15["movie_id"] = movie3["id"]
 role15["actor_id"] = actor11["id"]
 role15.save 
 
+puts "Roles: #{Role.all.count}"
+#now that the data is loaded, assign a value to each row so it is easier to reference 
+
+christian = Actor.find_by({"name" => "Christian Bale"})
+michael = Actor.find_by({"name" => "Michael Caine"})
+liam = Actor.find_by({"name" => "Liam Neeson"})
+katie = Actor.find_by({"name" => "Katie Holmes"})
+gary = Actor.find_by({"name" => "Gary Oldman"})
+heath = Actor.find_by({"name" => "Heath Ledger"})
+aaron = Actor.find_by({"name" => "Aaron Eckhart"})
+maggie = Actor.find_by({"name" => "Maggie Gyllenhaal"})
+tom = Actor.find_by({"name" => "Tom Hardy"})
+joe = Actor.find_by({"name" => "Joseph Gordon-Levitt"})
+anne = Actor.find_by({"name" => "Anne Hathaway"})
+
 # Prints a header for the movies output
 puts "Movies"
 puts "======"
 puts ""
 
+
 # Query the movies data and loop through the results to display the movies output.
 # TODO!
+
+movies_list = Movie.all
+
+for movie_all in movies_list
+    title = movie_all["title"]
+    year_released = movie_all["year_released"]
+    rating = movie_all["rating"]
+
+    puts "#{title} #{year_released} #{rating}"
+end
 
 
 # Prints a header for the cast output
