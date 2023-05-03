@@ -73,24 +73,17 @@ Studio.destroy_all
 Role.destroy_all
 Actor.destroy_all
 
-# TODO!
-
 # Generate models and tables, according to the domain model.
-# TODO!
 
 #rails generate model movie
-
 #rails generate model actor
-
 #rails generate model studio
-
 #rails generate model role 
-
 #rails db:migrate
 
 # Insert data into the database that reflects the sample data shown above.
 # Do not use hard-coded foreign key IDs.
-# TODO!
+
 
 #Studio Information
 studio = Studio.new
@@ -122,7 +115,7 @@ movie3["studio_id"] = warner["id"]
 movie3.save
 
 #add a doublecheck feature 
-puts "Movies: #{Movie.all.count}"
+#puts "Movies: #{Movie.all.count}"
 
 #Actor Information 
 actor1 = Actor.new
@@ -169,7 +162,8 @@ actor11 = Actor.new
 actor11["name"] = "Anne Hathaway"
 actor11.save
 
-puts "Actors: #{Actor.all.count}"
+#add a doublecheck feature
+#puts "Actors: #{Actor.all.count}"
 
 #Role Information 
 role1 = Role.new
@@ -262,26 +256,13 @@ role15["movie_id"] = movie3["id"]
 role15["actor_id"] = actor11["id"]
 role15.save 
 
-puts "Roles: #{Role.all.count}"
-#now that the data is loaded, assign a value to each row so it is easier to reference 
-
-christian = Actor.find_by({"name" => "Christian Bale"})
-michael = Actor.find_by({"name" => "Michael Caine"})
-liam = Actor.find_by({"name" => "Liam Neeson"})
-katie = Actor.find_by({"name" => "Katie Holmes"})
-gary = Actor.find_by({"name" => "Gary Oldman"})
-heath = Actor.find_by({"name" => "Heath Ledger"})
-aaron = Actor.find_by({"name" => "Aaron Eckhart"})
-maggie = Actor.find_by({"name" => "Maggie Gyllenhaal"})
-tom = Actor.find_by({"name" => "Tom Hardy"})
-joe = Actor.find_by({"name" => "Joseph Gordon-Levitt"})
-anne = Actor.find_by({"name" => "Anne Hathaway"})
+#add a doublecheck feature
+#puts "Roles: #{Role.all.count}"
 
 # Prints a header for the movies output
 puts "Movies"
 puts "======"
 puts ""
-
 
 # Query the movies data and loop through the results to display the movies output.
 # TODO!
@@ -304,7 +285,6 @@ puts "========"
 puts ""
 
 # Query the cast data and loop through the results to display the cast output for each movie.
-# TODO!
 
 role_list = Role.all 
 for roles_all in role_list
@@ -315,5 +295,4 @@ for roles_all in role_list
     character_name = roles_all["character_name"]
 
 puts "#{movie_title} #{actor_name} #{character_name}"
-
 end 
