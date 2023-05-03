@@ -292,8 +292,9 @@ for movie_all in movies_list
     title = movie_all["title"]
     year_released = movie_all["year_released"]
     rating = movie_all["rating"]
-
-    puts "#{title} #{year_released} #{rating}"
+    studio = Studio.find_by({"id" => movie_all["studio_id"]})
+    studio_name = studio["name"]
+    puts "#{title} #{year_released} #{rating} #{studio_name}"
 end
 
 
